@@ -1,0 +1,10 @@
+---
+title: My Posts
+icon: fa-user
+order: 2
+---
+
+
+{% for post in site.posts limit:5 %}  
+    <h5><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+{% endfor %}
