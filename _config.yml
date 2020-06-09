@@ -30,13 +30,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: _TechBlog
-subtitle: 나만의 작은 테크블로그 
+title: _Techblog
+subtitle: 나만의 작은 테크_블로그
 description: >- # this means to ignore newlines until "baseurl:"
-  개발할때가 세상 가장 행복하더라
-author: kangsungwoo
+  안드로이드, Kotlin, Java 기술 공유 블로그
+author: beemo
 email: burkdog@naver.com
-avatar: "./assets/images/beemo2.gif"
+avatar: assets/images/beemo.png
 
 # You'll want to customize url and baseurl for your own site:
 baseurl: "/blog" # the subpath of your site, e.g. /blog
@@ -59,5 +59,7 @@ dribbble_url:
 google_analytics:
 
 # The following settings are NECESSARY for the Prologue theme to run:
-remote_theme: chrisbobbe/jekyll-theme-prologue
+theme: jekyll-theme-prologue
 collections: [sections]
+highlighter: rouge
+markdown: kramdown
