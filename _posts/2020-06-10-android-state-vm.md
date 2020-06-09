@@ -4,11 +4,11 @@ author: 강성우
 layout: post
 ---
 
-## ViewModel 의 데이터 상태 관리
+### ViewModel 의 데이터 상태 관리
 
 ViewModel 에서는 ViewModel 을 가져올때 `ViewModelProvider`를 통해 `LifeCycle` 을 지정 하여 Activity 나 Fragment 의 생명주기와 동기화된 활동을 보여준다. 아래 그 생명주기를 참조하면 알 수 있다. 
 
-![vm_lifecycle](https://github.com/ksu3101/TIL/blob/master/imgs/viewmodel-lifecycle.png)
+![vm_lifecycle](/blog/assets/images/viewmodel-lifecycle.png)
 
 Activity 혹은 Fragment 에서 ViewModel 의 인스턴스를 생성 하고 사용 할 때 ViewModel 내부의 `LiveData` 등은 Finished 상태가 되기 전 까지는 유효한 것 이다. 
 
