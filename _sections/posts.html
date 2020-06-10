@@ -1,10 +1,12 @@
 ---
-title: My Posts
-icon: fa-user
+title: Latest Posts
+icon: fa-th
 order: 2
 ---
 
-
 {% for post in site.posts limit:5 %}  
-    <h5><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+    <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">
+        <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time> / {{ post.title }}
+    </a>     
+    <br />
 {% endfor %}
