@@ -1,0 +1,40 @@
+---
+title: Recommended Posts
+icon: fa-check
+order: 2
+---
+
+<div class="container">
+{% for post in site.posts %}
+    {% for tag in post.tags limit:3 %}
+        {%- if tag == "recommended" -%}            
+            <div class="column" onclick="location.href='{{ post.url | absolute_url }}'">
+                    <!-- Post-->
+                    <div class="post-module">
+                        <!-- Thumbnail-->
+                        <div class="thumbnail">
+                            <div class="date">
+                                <div class="day">{{ post.date | date:'%d'}}</div>
+                                    <div class="month">{{ post.date | date:'%b' }}</div>
+                            </div><img src="{{ post.image }}"/>
+                        </div>
+                        <!-- Post Content-->
+                        <div class="post-content">
+                            <div class="category">{{ post.category[0] }}</div>
+                            <h1 class="title">{{ post.title | truncate: 24 }}</h1>                            
+                            <p class="description">{{ post.excerpt | strip_html | truncate: 60 }}</p>
+                            
+                            <!-- categories -->
+                            <h6>
+                                {% for category in post.category limit:3 %}
+                                    {{ category }}
+                                {% endfor %}
+                            </h6>
+                        </div>
+                    </div>
+                </div>    
+        {%- endif -%}
+    {% endfor %}                        
+{% endfor %}
+</div>
+

@@ -2,9 +2,10 @@
 title: JVM Dalvik, ART and Runtime Data Area
 author: 강성우
 layout: post
+category: [Android, JVM]
+tag: [recommended, android, jvm]
+image: /blog/assets/images/android_java.jpeg
 ---
-
-## JVM Dalvik and ART of Runtime Data Area 
 
 JVM(Java Virtual Machine)은 아키텍쳐와 플랫폼에 상관없이 실행할 수 있는 환경을 제공하는 언어라고 할 수 있다. 안드로이드에서는 JAVA를 사용 하지만 JVM은 라이센스 문제로 인하여 Dalvik이라는 VM을 만들어서 사용 했었다. Dalvik VM은 JVM이기는 하지만 JVM의 명세를 따르지는 않는다. Stack머신인 다른 JVM과는 달리 Dalvik VM은 레지스터 머신이며, 독자적인 툴을 이요하여 자바 바이트 코드를 Dalvik VM용 레지스터 기반 명령어 코드로 변환 한다. 
 
