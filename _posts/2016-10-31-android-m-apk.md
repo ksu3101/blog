@@ -24,7 +24,7 @@ JVM(Java Virtual Machine)은 아키텍쳐와 플랫폼에 상관없이 실행할
 
 ### 2. Package
 
-![img]/blog/assets/images/jvm_package.png)
+![img](/blog/assets/images/jvm_package.png)
 
 #### 2.1 class 파일 생성
 
