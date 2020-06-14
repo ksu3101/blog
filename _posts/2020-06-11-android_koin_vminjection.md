@@ -2,7 +2,7 @@
 title: Koin 에서 ViewModel 주입 방법
 author: 강성우
 layout: post
-category: [Android, Koin]
+category: [Koin, Android]
 tag: [recommended, android, koin]
 image: /blog/assets/images/android_koin.png
 ---

@@ -249,7 +249,7 @@
 		ul, ol {
 			padding-left: 0.25em;
 			margin-left: 1.25em;
-		}
+		}		
 	}
 
 /* Image */
@@ -662,6 +662,26 @@
 		margin-left: 375px;
 		> section {
 			text-align: center;
+			
+			/* Title of post */
+			h2 {
+				font-weight: 700;
+			}
+			#article_header, #article_contents {
+				text-align: left;
+			}
+			#article_readmore {
+				text-align: left;
+				font-weight: 400;
+			}
+			#lastest_post_items {
+				display: inline-block;
+				width: 80%;
+				text-align: left;
+			}
+			#lastest_post_date {
+				float: right;
+			}			
 		}
 		> article {
 			text-align: left;
@@ -777,7 +797,7 @@
 
 				section {
 					&.cover {
-						padding: 5em 0;
+						padding: 3.5em 0;
 					}
 				}
 			}

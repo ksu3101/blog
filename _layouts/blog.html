@@ -11,14 +11,16 @@ layout: default
 	<!-- Posts List -->
 	{%- for _post in _posts -%}
 		{%- capture _title -%}
-			<a href="{{- _post.url | absolute_url -}}"><h3>{{- _post.title -}}</h3></a>
+			<a href="{{- _post.url | absolute_url -}}"><h2 id="article_header">{{- _post.title -}}</h2></a>
 		{%- endcapture -%}
 		{%- capture _subtitle -%}
+			<p id="article_contents">
 			{% if _post.author -%}{{- _post.author }} | {% endif %}
-			{{- _post.date | date_to_long_string -}}
+			 {{- _post.date | date_to_long_string -}}
+			</p>
 		{%- endcapture -%}
-		{%- capture _excerpt -%}<p>{{- _post.excerpt | strip_html | truncatewords: 70 -}}</p>{%- endcapture -%}
-		{%- capture _link -%}<a href="{{- _post.url | absolute_url -}}">read more</a>{%- endcapture -%}
+		{%- capture _excerpt -%}<p id="article_contents">{{- _post.excerpt | strip_html | truncatewords: 60 -}}</p>{%- endcapture -%}
+		{%- capture _link -%}<p id="article_readmore"><a href="{{- _post.url | absolute_url -}}">read more</a></p>{%- endcapture -%}
 		{%- assign _content = _excerpt | append: _link -%}
 		{%- include section.html title=_title subtitle=_subtitle content=_content -%}
 	{%- endfor -%}

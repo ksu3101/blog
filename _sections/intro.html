@@ -7,11 +7,19 @@ icon: fa-comment
 order: 1
 ---
 <header>
-  <h2 class="alt">FIX<strong>FIX</strong>FIX</h2>
-  <p>반갑습니다 :)</p>
+  <h3>Lastest Posts</h3>
 </header>
 
+<div id="lastest_post_items">
+{% for post in site.posts limit:5 %}  
+    <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">
+       {{ post.title | truncate: 60 }} 
+       <time id="lastest_post_date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date_to_long_string }}</time> 
+    </a>
+    <br />
+{% endfor %}
+</div>
+
 <footer>
-  <!--a href="#about-me" class="button scrolly">AboutMe</a -->
-  <a href="https://ksu3101.github.io/blog/blog.html" class="button">Move to _Techblog</a>
+  <a href="/blog/blog.html" class="button">더 많은 게시물 보기 :)</a>
 </footer>
