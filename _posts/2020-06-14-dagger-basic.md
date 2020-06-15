@@ -90,7 +90,10 @@ Application component 를 사용 하기 위해서는 컴포넌트 팩토리를 �
 
 ```kotlin
 @Singleton
-@Component(modules = [ApplicationModule::class]) 
+@Component(modules = [
+    AndroidSupportInjectionModule::class,   // 참고!
+    ApplicationModule::class
+]) 
 interface ApplicationComponent: AndroidInjector<SomeApplication> {
     @Component.Factory
     interface Factory {
@@ -109,6 +112,8 @@ object ApplicationModule {
     }
 }
 ```
+
+`AndroidSupportInjectionModule` 은 Dagger에서 제공 하는 모듈이다. 이 모듈을 `AndroidInjector`을 상속한 인터페이스의 컴포넌트를 정의 할 때 추가 하지 않는다면 빌드가 되지 않는다. (이 글 작성 시점) `AndroidSupportInjectionModule`의 개발자 코멘트를 확인 하니 지금 당장은 어쩔수 없이 추가된 `@Beta` 어노테이션이 추가 되었으며 추후 릴리즈 버전에서는 이 모듈을 제거 할 예정이라고 적혀 있었다.
 
 위에서 정의 한 `Factory` 인터페이스는 컴파일러에 의해 `DaggerApplicationComponent` 의 내부 정적 클래스를 통해 `factory()` 메소드를 통해 인스턴스화 한다. 그 내용은 아래와 같다. 
 
@@ -138,7 +143,7 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 #### 1.2 Activity에 주입
 
 ```kotlin
-@Subcomponent(modules = [SomeActivityModule::class]) 
+@Subcomponent(modules = []) 
 interface SomeActivityComponent: AndroidInjector<SomeActivity> {
     @Subcomponent.Factory
     interface Factory: AndroidInjector.Factory<SomeActivity>
@@ -179,11 +184,21 @@ class SomeApplication: Application, HasAndroidInjector {
         return dispatchingAndroidInjector
     }
 }
+
+// 아래처럼 직접 super 메소드 콜 전에 `AndroidInjection.inject(this)` 하는 방법과
+// Activity 가 아닌 `DaggerActivity`클래스를 상속하는 방법이 있다. 
+class SomeActivity: Activity() {
+    override fun onCreate(savedInstanceState: Bundle) {
+        AndroidInjection.inject(this)
+        super.onCreate(savedInstanceState)
+    }
+}
 ```
 
-위 방법의 경우 `DaggerApplication` 이라는 추상 클래스를 상속하는 방법도 있다. 
+위 예제 에서는 Application 에서 `HasAndroidInjector` 인터페이스를 구현하는 방법을 사용 했는데 다른 방법으로 `DaggerApplication` 추상 클래스를 상속 하는 방법이 있다. 그리고 Activity는 `DaggerActivity`를 상속 하였다. 두 클래스 모두 `HasAndroidInjector`를 구현된 상태 이며 필요한 경우 추상 메소드를 구현해주면 된다. 안드로이드 컴포넌트 클래스의 상속관계가 복잡하지 않은 경우 `Dagger~` 클래스를 상속 하고 그렇지 않은 경우 `Base~`와 같은 부모 클래스를 두어 관리 하는게 좋을 것 같다. 
 
 `AndroidInjector.inject()`를 호출 시 `DispatchingAndroidInjector<Any>`를 `Application`으로 부터 받아 어노테이션으로 정의된 액티비티에 `inject()` 메소드 를 통해 주입된다. 
+
 
 #### 1.3 제공되는 유형
 
