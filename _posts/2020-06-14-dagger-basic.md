@@ -9,6 +9,8 @@ image: /blog/assets/images/android_dagger.png
 
 이 문서에서는 기존 Dagger 를 사용 했을때 발생하는 문제들에 대해서 `dagger.android` 의 API 를 사용 하여 단순화 시켜보는 내용들에 대해서 정리 하였다. 
 
+예제 코드는 [이 Github repository](https://github.com/ksu3101/AacMvvmDagger)를 참고 하면 된다. 
+
 ### 1. Android with Dagger issue
 
 Dagger 에 대해서 잘 알려진 것은 `Component` 인터페이스를 선언 하고 `Module` 클래스를 만들어 Component 에 인스턴스를 제공 하기 위해 provider 메소드를 만든뒤, 필요한 안드로이드 컴포넌트 등 에서 생성자, 클래스 멤버 등에 어노테이션을 적용 하여 주입 받는 형태 이다. 예를 들면 아래와 같다. 
