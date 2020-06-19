@@ -142,7 +142,9 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
 `Factory` 인터페이스의 `create()` 메소드의 패러미터에 `Bindsinstance` 어노테이션 으로 인해 추가됬음을 확인 할 수 있다. 
 
 
-#### 1.2 Activity에 주입
+#### 1.2 Activity, Fragment에 주입
+
+Activity와 Fragment의 주입방법은 여러가지 방법이 있지만 간단헤 줄이면 2가지가 있다. 
 
 ```kotlin
 @Subcomponent(modules = []) 
@@ -201,6 +203,28 @@ class SomeActivity: Activity() {
 
 `AndroidInjector.inject()`를 호출 시 `DispatchingAndroidInjector<Any>`를 `Application`으로 부터 받아 어노테이션으로 정의된 액티비티에 `inject()` 메소드 를 통해 주입된다. 
 
+조금더 간단하게 해보면 이렇게 도 할 수 있다. 
+
+```kotlin
+@Module
+abstract class SomeActivityModule {
+    @ContributesAndroidInjector(modules = [SomeFragmentModule::class])
+    abstract fun someActivity(): SomeActivity
+}
+
+@Moduole
+abstract class SomeFragmentModule {
+    @ContributesAndroidInjector(modules = [ViewModelBuilder::class])
+    abstract fun someFragment(): SomeFragment
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SomeFragmentViewModel::class)
+    abstract fun bindViewModel(viewModel: SomeFragmentViewModel): ViewModel
+}
+```
+
+위의 경우 `SomeActivity`에 `SomeFragment`가 존재 할 경우에 대해서 적용 된 경우 이다. `ContributesAndroidInjector`어노테이션이 이전의 보일러 플레이트 코드였던 `inject()`메소드를 대체 하고 있으며, 기존 `module - provide` 관계를 그대로 사용 하고 있음을 확인 할 수 있다. 복잡한 의존관계를 가지지 않는다면 위와같은 패턴에 각각 `Scope`를 정의 하여 적용 하는 것 을 추천한다. 
 
 #### 1.3 제공되는 유형
 

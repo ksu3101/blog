@@ -64,7 +64,7 @@ data class ToastMessageState(val message: String): MessageState()
 
 `State`는 `Store`에 마지막 인스턴스혹은 Initialized State만 저장 된다. 그리고 Store 의 State는 오직 dispatch된 `Action`으로만 변경 될 수 있다. 
 
-##### 2.2.1 at Redux base Android architectur
+##### 2.2.1 at Redux base Android architecture
 
 Redux 기반 안드로이드 아키텍쳐 에서 `Store`에 `BehaviorSubject`로 퍼블리싱 되는 `Observable`로 래핑된 `State`인스턴스는 `ViewModel`의 `render()` 함수를 통해서 핸들링 된다. 
 
