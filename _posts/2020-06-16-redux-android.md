@@ -2,8 +2,9 @@
 title: Redux basic for Android developers
 author: 강성우
 layout: post
-category: [Android, Redux]
-tag: [android, redux, architecture]
+category: [Architecture, Redux]
+tag: [recommended, android, redux, architecture]
+image: /blog/assets/images/redux-banner.jpg
 ---
 
 Redux 기반의 안드로이드 아키텍쳐를 이해하기 위해서 Redux 에 대한 기초를 안드로이드 개발자 입장에서 정리해 보았다. 
