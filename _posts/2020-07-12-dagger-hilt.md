@@ -1,5 +1,5 @@
 ---
-title: Dagger - Hilt
+title: Migration to Dagger-Hilt
 author: 강성우
 layout: post
 category: [Android]
