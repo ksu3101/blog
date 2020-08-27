@@ -13,10 +13,11 @@ order: 2
                     <div class="post-module">
                         <!-- Thumbnail-->
                         <div class="thumbnail">
+                            <img src="{{ post.image }}"/>
                             <div class="date">
                                 <div class="day">{{ post.date | date:'%d'}}</div>
                                     <div class="month">{{ post.date | date:'%b' }}</div>
-                            </div><img src="{{ post.image }}"/>
+                            </div>
                         </div>
                         <!-- Post Content-->
                         <div class="post-content">
