@@ -2,8 +2,8 @@
 title: 안드로이드 퍼포먼스에 대한 팩트 체크
 author: 강성우
 layout: post
-category: [Android]
-tag: [android, dagger-hilt]
+category: [Android, Java, Kotlin]
+tag: [android, java, kotlin, jvm, performance]
 ---
 
 이 글은 Calin Juravle의 [Busting Android performance myths](https://medium.com/androiddevelopers/busting-android-performance-myths-d85ae1d87f22)를 번역 하였다. 
