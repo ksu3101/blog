@@ -1,3 +1,11 @@
+---
+title: Lottie for Android
+author: 강성우
+layout: post
+category: [Android, Lottie]
+tag: [android, lottie]
+---
+
 ## Lottie for Android - Basic
 
 Airbnb의 애니메이션 지운 라이브러리인 [Lottie](http://airbnb.io/lottie/#/README)에서 안드로이드 관련 문서를 번역하고 정리해보려 한다. 
