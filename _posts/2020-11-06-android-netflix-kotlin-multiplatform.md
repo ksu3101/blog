@@ -1,5 +1,5 @@
 ---
-title: 넷플릭스의 안드로이드와 iOS앱 - 코틀린 멀티플랫폼으로 만들어지다 
+title: 넷플릭스의 코틀린 멀티 플랫폼
 author: 강성우
 layout: post
 category: [Android, Kotlin]
