@@ -20,7 +20,7 @@ Android에서는 앱의 요구사항을 충족시켜줄 많은 표준적인 뷰 
 
 Android의 뷰 에는 자체적인 수명 주기가 있지만 공식 문서 로는 제공되지 않는다. 이 수명주기의 중요한 부분은 아래와 같다. 
 
-![android-view-lifecycle](./images/android-view-lifecycle.jpg)
+![android-view-lifecycle](/blog/assets/images/android-view-lifecycle.jpg)
 
 액티비티가 보여지는 화면으로 들어오면 ANdroid는 Root View를 요청한 다음 Root view에서 제일 말단에 위치한 뷰 순으로 그려나간다. 이 그려나가는 단계는 아래 3단계로 진행 된다. 
 
@@ -136,7 +136,7 @@ override fun onDraw(canvas: Canvas) {
 
 예제의 결과를 보면 아래와 같이 보여진다. 
 
-![ex_result](./images/Screenshot-2020-12-19-at-15.38.49.png)
+![ex_result](/blog/assets/images/Screenshot-2020-12-19-at-15.38.49.png)
 
 `onDraw()`메소드는 여러번 호출 되므로 일반적으로 `Paint`객체를 다른 곳 으로 이동 시켜 주고 `onDraw()`에서는 이동 시킨 `Paint`객체에 접근 하는 것 이 좋다. 예를 들면 아래와 같이 사용 하면 된다. 
 
@@ -231,7 +231,7 @@ class MainActivity: AppCompatActivity() {
 }
 ```
 
-![loading view result](./images/ezgif.com-gif-maker.gif)
+![loading view result](/blog/assets/images/ezgif.com-gif-maker.gif)
 
 ### 8. Android Custom View Custom Attributes
 
