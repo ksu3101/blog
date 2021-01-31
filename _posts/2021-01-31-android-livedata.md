@@ -1,12 +1,10 @@
 ---
-title: Sonarqube setup guide
+title: LiveData - under the hood
 author: 강성우
 layout: post
-category: [Android, Sonarqube]
-tag: [android, view, sonarqube, code_quailty]
+category: [Android]
+tag: [android, view, livedata]
 ---
-
-## LiveData: under the hood
 
 > 이 글은 Alex Zhukovich의 [LiveData under the hood](https://alexzh.com/livedata-under-the-hood/)을 번역 하였다. 
 
